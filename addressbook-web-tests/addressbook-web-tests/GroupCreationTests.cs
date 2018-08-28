@@ -49,7 +49,10 @@ namespace WebAddressbookTests
             Login(new AccountData ("admin", "secret"));
             GotoGroupsPage();
             InitGroupCreation();
-            FillGroupForm("aaa", "sss", "ddd");
+            GroupData group = new GroupData("aaa");
+            group.Header = "ddd";
+            group.Footer = "fff";
+            FillGroupForm(group);
             SubmitGroupCreation();
             ReturntoGroupsPage();
         }
@@ -65,14 +68,14 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("submit")).Click();
         }
 
-        private void FillGroupForm(string name, string header, string footer)
+        private void FillGroupForm(GroupData group )
         {           
             driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(name);
+            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
             driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(header);
+            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
             driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(footer);
+            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
         }
 
         private void InitGroupCreation()
