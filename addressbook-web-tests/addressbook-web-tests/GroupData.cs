@@ -35,7 +35,7 @@ namespace WebAddressbookTests
         {
             get
             {
-                return = header;
+                return header;
             }
             set
             {
