@@ -15,8 +15,8 @@ namespace WebAddressbookTests
         public void ContactCreationTest()
 
         {
-            OpenHomepage();
-            Login(new AccountData("admin", "secret"));
+            navigationHelper.OpenHomepage();
+            loginHelper.Login(new AccountData("admin", "secret"));
             AddNewContact();
             ContactsData contacts = new ContactsData ("lopux");            
             contacts.Middlename = "lop";
