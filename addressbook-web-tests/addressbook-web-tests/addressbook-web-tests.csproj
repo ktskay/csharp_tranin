@@ -64,6 +64,7 @@
     <Compile Include="AccountData.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="ContactsData.cs" />
+    <Compile Include="ContactsHelper.cs" />
     <Compile Include="Figure.cs" />
     <Compile Include="GroupData.cs" />
     <Compile Include="GroupHelper.cs" />

@@ -9,15 +9,15 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class LoginHelper
+    public class LoginHelper : HelperBase
     {
         private IWebDriver driver;
 
-        public LoginHelper (IWebDriver driver)
+        public LoginHelper(IWebDriver driver)
         {
             this.driver = driver;
         }
-        public  void Login(AccountData account)
+        public void Login(AccountData account)
         {
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys(account.Username);
@@ -26,4 +26,4 @@ namespace WebAddressbookTests
             driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
         }
     }
-}
+    

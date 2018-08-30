@@ -19,6 +19,7 @@ namespace WebAddressbookTests
         protected LoginHelper loginHelper;
         protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
+        protected ContactsHelper contactsHelper;
         
 
         [SetUp]
@@ -35,6 +36,7 @@ namespace WebAddressbookTests
             loginHelper = new LoginHelper(driver);
             navigationHelper = new NavigationHelper(driver, baseURL);
             groupHelper = new GroupHelper(driver);
+            contactsHelper = new ContactsHelper(driver);
         }
 
         [TearDown]
@@ -53,24 +55,7 @@ namespace WebAddressbookTests
      
        
 
-        protected void AddNewContact()
-        {
-            driver.FindElement(By.LinkText("add new")).Click();
-        }
-        protected void FillContactForm(ContactsData contacts)
-        {
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contacts.Firstname);
-            driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(contacts.Middlename);
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contacts.Lastname);
-        }
-        protected void SubmitNewContact()
-        {
-            driver.FindElement(By.Name("submit")).Click();
-        }
-
+     
         
 
 

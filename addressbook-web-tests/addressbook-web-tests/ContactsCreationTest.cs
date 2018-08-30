@@ -17,24 +17,16 @@ namespace WebAddressbookTests
         {
             navigationHelper.OpenHomepage();
             loginHelper.Login(new AccountData("admin", "secret"));
-            AddNewContact();
+            contactsHelper.AddNewContact();
             ContactsData contacts = new ContactsData ("lopux");            
             contacts.Middlename = "lop";
             contacts.Lastname = "lopuxov";
-            FillContactForm(contacts);
-            SubmitNewContact();
+            contactsHelper. FillContactForm(contacts);
+            contactsHelper.SubmitNewContact();
             
 
 
-        private void FilloutForm(ContactsData contacts)
-        {
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contacts.Firstname);
-            driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(contacts.Middlename);
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contacts.Lastname);
-        }
+
 
         }
     }
