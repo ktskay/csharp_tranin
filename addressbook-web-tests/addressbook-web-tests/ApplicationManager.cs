@@ -21,12 +21,19 @@ namespace WebAddressbookTests
 
         public ApplicationManager()
         {
-           
+                  
+            loginHelper = new LoginHelper(this );
+            navigationHelper = new NavigationHelper(this);
+            groupHelper = new GroupHelper(this);
+            contactsHelper = new ContactsHelper(this);
+        }
 
-            loginHelper = new LoginHelper(driver);
-            navigationHelper = new NavigationHelper(driver, baseURL);
-            groupHelper = new GroupHelper(driver);
-            contactsHelper = new ContactsHelper(driver);
+        public string Driver
+        {
+            get
+            {
+                return driver;
+            }
         }
 
         public void Stop()
@@ -69,5 +76,7 @@ namespace WebAddressbookTests
                 return contactsHelper;
             }
         }
+
+        
     }
 }
