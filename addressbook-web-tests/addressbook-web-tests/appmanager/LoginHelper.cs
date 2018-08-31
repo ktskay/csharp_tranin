@@ -11,11 +11,11 @@ namespace WebAddressbookTests
 {
     public class LoginHelper : HelperBase
     {
-        private IWebDriver driver;
 
-        public LoginHelper(IWebDriver driver)
+
+        public LoginHelper(IWebDriver driver) : base(driver)
         {
-            this.driver = driver;
+
         }
         public void Login(AccountData account)
         {
@@ -26,4 +26,4 @@ namespace WebAddressbookTests
             driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
         }
     }
-    
+}

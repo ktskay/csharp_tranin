@@ -10,16 +10,14 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAddressbookTests
 
 {
-    public class ContactsHelper
+    public class ContactsHelper : HelperBase 
     {
          
-        private IWebDriver driver;
 
 
-        public ContactsHelper(IWebDriver driver)
+        public ContactsHelper(IWebDriver driver) : base (driver)
         {
-            this.driver = driver;
-
+           
         }
         public void AddNewContact()
         {
