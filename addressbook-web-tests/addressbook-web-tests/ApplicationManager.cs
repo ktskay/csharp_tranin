@@ -18,17 +18,24 @@ namespace WebAddressbookTests
         protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
         protected ContactsHelper contactsHelper;
+      
 
         public ApplicationManager()
         {
-                  
+
+            FirefoxOptions options = new FirefoxOptions();
+            options.UseLegacyImplementation = true;
+            options.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+            driver = new FirefoxDriver(options);
+            baseURL = "http://localhost/";
+
             loginHelper = new LoginHelper(this );
-            navigationHelper = new NavigationHelper(this);
+            navigationHelper = new NavigationHelper(this, baseURL);
             groupHelper = new GroupHelper(this);
             contactsHelper = new ContactsHelper(this);
         }
 
-        public string Driver
+        public IWebDriver Driver 
         {
             get
             {

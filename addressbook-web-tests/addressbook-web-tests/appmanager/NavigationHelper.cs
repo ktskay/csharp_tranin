@@ -13,11 +13,12 @@ namespace WebAddressbookTests
     public class NavigationHelper : HelperBase 
     {
         
-        private string baseURL;
+        public  string baseURL;
 
-        public NavigationHelper(ApplicationManager manager) : base(manager)
+        public NavigationHelper(ApplicationManager manager, string baseUrl ) 
+            : base(manager)
         {
-            this.baseURL = manager.Driver;
+            this.baseURL = baseURL;
         }
         public void OpenHomepage()
         {

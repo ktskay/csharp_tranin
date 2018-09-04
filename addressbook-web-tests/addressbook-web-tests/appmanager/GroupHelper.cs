@@ -9,18 +9,21 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class GroupHelper : HelperBase 
+    public class GroupHelper : HelperBase
     {
-       
-        
 
-        public GroupHelper(AppDomainManager manager) : base(manager )
-        {            
-         }
+
+
+
+        public GroupHelper(ApplicationManager manager) : base(manager)
+        {
+        }
+
+
 
         public GroupHelper Create(GroupData group)
         {
-            app.NavigationHelper.GotoGroupsPage();
+            manager.NavigationHelper.GotoGroupsPage();
             InitGroupCreation();
             FillGroupForm(group);
             SubmitGroupCreation();
@@ -28,10 +31,19 @@ namespace WebAddressbookTests
 
             return this;
         }
-        
+
+        public GroupHelper Remove(int v)
+        {
+            manager.NavigationHelper.GotoGroupsPage();
+            SelectGroup(1);
+            RemoveGroup();
+            ReturntoGroupsPage();
+            return this;
+
+        }
 
 
-        public GroupHelper  InitGroupCreation()
+        public GroupHelper InitGroupCreation()
         {
 
             driver.FindElement(By.Name("new")).Click();
@@ -70,3 +82,4 @@ namespace WebAddressbookTests
         }
     }
 }
+

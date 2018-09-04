@@ -8,27 +8,23 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupRemovalTests:TestBase
+    public class GroupRemovalTests : TestBase
     {
-       
+
+
 
         [Test]
         public void GroupRemovalTest()
         {
-           
-            app.NavigationHelper.GotoGroupsPage();
-            app.Groups
-            .SelectGroup(1)
-            .RemoveGroup()
-            .ReturntoGroupsPage();
+            app.Groups.Remove(1);
         }
 
-       
-        
 
-       
 
-        
-      
-    }
+
+
+
+
+    }  
+    
 }

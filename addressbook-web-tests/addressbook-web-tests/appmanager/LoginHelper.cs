@@ -13,7 +13,8 @@ namespace WebAddressbookTests
     {
 
 
-        public LoginHelper(ApplicationManager manager ) : base(manager)
+        public LoginHelper(ApplicationManager manager ) 
+            : base(manager)
         {
 
         }
