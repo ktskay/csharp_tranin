@@ -11,8 +11,11 @@ namespace WebAddressbookTests
 {
     public class ApplicationManager
     {
+        
         protected IWebDriver driver;
+        private StringBuilder verificationErrors;
         protected string baseURL;
+
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigationHelper;
@@ -28,6 +31,8 @@ namespace WebAddressbookTests
             options.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
             driver = new FirefoxDriver(options);
             baseURL = "http://localhost/";
+            verificationErrors = new StringBuilder();
+            
 
             loginHelper = new LoginHelper(this );
             navigationHelper = new NavigationHelper(this, baseURL);

@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         public ContactsData(string firstname)
         {
             this.firstname = firstname;
-            
+
         }
 
 
@@ -55,6 +55,3 @@ namespace WebAddressbookTests
         }
     }
 }
-    
-    
-

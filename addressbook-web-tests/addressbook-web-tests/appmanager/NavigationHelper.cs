@@ -13,14 +13,15 @@ namespace WebAddressbookTests
     public class NavigationHelper : HelperBase 
     {
         
-        public  string baseURL;
+        public string baseURL;
 
         public NavigationHelper(ApplicationManager manager, string baseUrl ) 
             : base(manager)
         {
-            this.baseURL = baseURL;
+            baseURL = baseUrl;
         }
-        public void OpenHomepage()
+
+        public void GoToHomepage()
         {
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
         }
