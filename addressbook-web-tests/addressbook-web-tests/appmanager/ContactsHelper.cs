@@ -49,9 +49,10 @@ namespace WebAddressbookTests
 
 
 
-        public void SelectContact()
+        public ContactsHelper SelectContact()
         {
             driver.FindElement(By.Name("selected[]")).Click();
+            return this;
         }
 
         public ContactsHelper DeleteContact()
