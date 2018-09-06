@@ -19,12 +19,12 @@ namespace WebAddressbookTests
         [Test]
         public void ContactsRemovalTest()
         {
-            GoToHomePage();
-            Login(new AccountData("admin", "secret"));
-            SelectContacts();
-            RemoveContact();
-            ConfirmationWindow();
-            ReturnToHomePage();
+           app.NavigationHelper.GoToHomepage() ;
+           app.Auth.Login(new AccountData("admin", "secret"));
+            app.Contacts.SelectContacts(1);
+            app.Contacts.RemoveContact();
+           app.Contacts.ConfirmationWindow();
+          
         }
 
      

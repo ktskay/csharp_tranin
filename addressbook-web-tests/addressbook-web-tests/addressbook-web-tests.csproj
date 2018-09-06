@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="model\ContactsData.cs" />
     <Compile Include="model\AccountData.cs" />
-    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="appmanager\ApplicationManager.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="appmanager\ContactsHelper.cs" />
     <Compile Include="Figure.cs" />
