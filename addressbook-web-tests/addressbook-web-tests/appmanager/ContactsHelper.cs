@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -12,20 +13,22 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAddressbookTests
 
 {
-    public class ContactsHelper : HelperBase 
+    public class ContactsHelper : HelperBase
     {
-         
+        private bool acceptNextAlert;
+        private object verificationErrors;
 
-
-        public ContactsHelper(ApplicationManager manager) : base (manager)
+        public ContactsHelper(ApplicationManager manager) : base(manager)
         {
-            
+
         }
+
         public ContactsHelper AddNewContact()
         {
             driver.FindElement(By.LinkText("add new")).Click();
             return this;
         }
+
         public ContactsHelper FillContactForm(ContactsData contacts)
         {
             driver.FindElement(By.Name("firstname")).Clear();
@@ -36,6 +39,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("lastname")).SendKeys(contacts.Lastname);
             return this;
         }
+
         public ContactsHelper SubmitNewContact()
         {
             driver.FindElement(By.Name("submit")).Click();
@@ -43,33 +47,97 @@ namespace WebAddressbookTests
         }
 
 
-        public ContactsHelper SelectContacts(int v)
-        {
-            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
-            driver.FindElement(By.Name("selected[]")).Click();
-          
 
-            return this;
+
+        public void SelectContact()
+        {
+            driver.FindElement(By.Name("selected[]")).Click();
         }
 
-        public ContactsHelper RemoveContact()
+        public ContactsHelper DeleteContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             return this;
         }
-        
 
-        public ContactsHelper ConfirmationWindow()
+        public ContactsHelper ConfirmedWindow()
         {
             Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
             return this;
         }
 
+        private bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
+        private bool IsAlertPresent()
+        {
+            try
+            {
+                driver.SwitchTo().Alert();
+                return true;
+            }
+            catch (NoAlertPresentException)
+            {
+                return false;
+            }
+        }
+
         private string CloseAlertAndGetItsText()
         {
-            throw new NotImplementedException();
+            try
+            {
+                IAlert alert = driver.SwitchTo().Alert();
+                string alertText = alert.Text;
+                if (acceptNextAlert)
+                {
+                    alert.Accept();
+                }
+                else
+                {
+                    alert.Dismiss();
+                }
+
+                return alertText;
+            }
+            finally
+            {
+                acceptNextAlert = true;
+            }
         }
+
+
+        [TearDown]
+            public void TeardownTest()
+            {
+                try
+                {
+                    driver.Quit();
+                }
+                catch (Exception)
+                {
+                    // Ignore errors if unable to close the browser
+                }
+                Assert.AreEqual("", verificationErrors.ToString());
+            }
+
+
+
+
+
+
     }
     }
+
+
 
 
