@@ -28,6 +28,17 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("add new")).Click();
             return this;
         }
+        public ContactsHelper InitContactsModification(ContactsData newContactsData)
+        {
+            driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
+            return this;
+        }
+
+        public ContactsHelper Modify(int v, ContactsData newContactsData)
+        {
+            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
+            return this ;
+        }
 
         public ContactsHelper FillContactForm(ContactsData contacts)
         {
