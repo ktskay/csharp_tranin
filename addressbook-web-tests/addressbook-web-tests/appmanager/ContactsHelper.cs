@@ -23,22 +23,36 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactsHelper AddNewContact()
-        {
-            driver.FindElement(By.LinkText("add new")).Click();
-            return this;
-        }
-        public ContactsHelper InitContactsModification(ContactsData newContactsData)
+      public ContactsHelper Modify(int v, ContactsData newContacts)
+      {
+          SelectContact();
+          InitContactsModification();
+          FillContactForm(newContacts);
+          SubmitContactModification();
+          
+
+                return this;
+      }
+
+        public ContactsHelper SubmitContactModification()
         {
             driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
             return this;
         }
 
-        public ContactsHelper Modify(int v, ContactsData newContactsData)
+        public ContactsHelper InitContactsModification()
         {
-            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
-            return this ;
+            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
+            return this;
+
         }
+
+        public ContactsHelper AddNewContact()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
+            return this;
+        }
+    
 
         public ContactsHelper FillContactForm(ContactsData contacts)
         {

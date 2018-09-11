@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using WebAddressbookTests;
 
-namespace WebAddressbookTests
+namespace addressbook_web_tests.tests
 {
     [TestFixture]
-    class ContactsModificationTests : TestBase
+    public class ContactsModificationTests : TestBase
     {
         [Test]
-        public void ContactsModificationTest()
+        public void ContactModificationTest()
         {
+            
+            ContactsData newContacts = new ContactsData("petr");
+            newContacts.Middlename = "petrovich";
+            newContacts.Lastname = "petrov";
 
-            ContactsData newContactsData = new ContactsData("vasek");
-            newContactsData.Middlename = "vasekovich";
-            newContactsData.Lastname = "vasilkov";
-            app.Contacts
-                .InitContactsModification(newContactsData) 
-                .SubmitNewContact();
 
-            app.Contacts.Modify(1, newContactsData);
+            app.Contacts.Modify(1, newContacts);
+
 
         }
     }
