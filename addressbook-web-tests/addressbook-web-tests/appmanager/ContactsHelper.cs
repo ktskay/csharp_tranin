@@ -17,6 +17,7 @@ namespace WebAddressbookTests
     {
         private bool acceptNextAlert;
         private object verificationErrors;
+        
 
         public ContactsHelper(ApplicationManager manager) : base(manager)
         {

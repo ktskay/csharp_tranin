@@ -8,26 +8,23 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [SetUpFixture]
+
     public class TestSuiteFixture
     {
-        public static ApplicationManager app;
+        
 
-        [SetUp]
-        public void InitApplicationManager();
+        [OneTimeSetUp]
+        public void InitApplicationManager()
 
         {
-            app = new ApplicationManager();
+            ApplicationManager app = ApplicationManager.GetInstance() ;
+           app.Auth.Login(new AccountData("admin", "secret"));
 
         }
     
-    [TearDown]
-        public void StopApplicationManager();
-
-        {
-
-        }
+    
     }
 }
-}
+
 
 
