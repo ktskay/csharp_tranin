@@ -9,7 +9,7 @@ using WebAddressbookTests;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactsModificationTests : TestBase
+    public class ContactsModificationTests : AuthTestBase
     {
         [Test]
         public void ContactModificationTest()
@@ -20,7 +20,7 @@ namespace WebAddressbookTests
             newContacts.Lastname = "petrov";
 
 
-            app.Contacts.Modify(1, newContacts);
+           
 
 
         }

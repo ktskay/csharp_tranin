@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tests\AuthTestBase.cs" />
     <Compile Include="tests\ContactsModificationTests.cs" />
     <Compile Include="tests\ContactsRemovalTest.cs" />
     <Compile Include="model\ContactsData.cs" />
@@ -77,11 +78,11 @@
     <Compile Include="appmanager\NavigationHelper.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="tests\GroupRemovalTests.cs" />
+    <Compile Include="tests\LoginTest.cs" />
     <Compile Include="tests\TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests\GroupCreationTests.cs" />
     <Compile Include="tests\ContactsCreationTest.cs" />
-    <Compile Include="tests\TestSuiteFixture.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>

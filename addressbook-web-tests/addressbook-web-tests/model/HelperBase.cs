@@ -11,8 +11,8 @@ namespace WebAddressbookTests
 {
     public class HelperBase
     {
-        protected  ApplicationManager manager;
-        protected  IWebDriver driver;
+        protected ApplicationManager manager;
+        protected IWebDriver driver;
 
         public HelperBase(ApplicationManager manager)
         {
@@ -28,5 +28,19 @@ namespace WebAddressbookTests
                 driver.FindElement(locator).SendKeys(text);
             }
         }
+
+        public bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
     }
 }

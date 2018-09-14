@@ -24,7 +24,7 @@ namespace WebAddressbookTests
 
         }
 
-      public ContactsHelper Modify(int v, ContactsData newContacts)
+      public ContactsHelper Modify(int v,ContactsData newContacts)
       {
           SelectContact();
           InitContactsModification();
@@ -90,7 +90,7 @@ namespace WebAddressbookTests
             return this;
         }
 
-        private bool IsElementPresent(By by)
+        private new bool IsElementPresent(By by)
         {
             try
             {
