@@ -19,7 +19,6 @@ namespace WebAddressbookTests
         {
             
             app.Contacts
-
                 .SelectContact()
                 .DeleteContact()
                 .ConfirmedWindow();

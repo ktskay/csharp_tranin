@@ -23,12 +23,21 @@ namespace WebAddressbookTests
 
         public void GoToHomepage()
         {
-            driver.Navigate().GoToUrl(baseURL + "addressbook/");
+            if (driver.Url == baseURL + "/addressbook/")
+            {
+                return;
+            }
+            driver.Navigate().GoToUrl(baseURL + "/addressbook/");
         }
 
 
         public void GotoGroupsPage()
         {
+            if (driver.Url == baseURL + "/addressbook/group.php"
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
             driver.FindElement(By.LinkText("groups")).Click();
         }
     }
