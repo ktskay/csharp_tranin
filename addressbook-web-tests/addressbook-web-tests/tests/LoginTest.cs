@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         [Test]
         public void LoginWithValidCredentials()
         {
-            //preparetion
+            //prepare
             app.Auth.Logout();
 
             //action
@@ -28,7 +28,7 @@ namespace WebAddressbookTests
 
         public void LoginWithInValidCredentials()
         {
-            //preparetion
+            //prepare
             app.Auth.Logout();
 
             //action
