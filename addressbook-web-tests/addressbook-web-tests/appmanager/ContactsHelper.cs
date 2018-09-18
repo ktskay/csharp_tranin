@@ -16,7 +16,7 @@ namespace WebAddressbookTests
     public class ContactsHelper : HelperBase
     {
         private bool acceptNextAlert;
-        private object verificationErrors;
+      
         
 
         public ContactsHelper(ApplicationManager manager) : base(manager)
@@ -34,6 +34,8 @@ namespace WebAddressbookTests
 
                 return this;
       }
+
+       
 
         public ContactsHelper SubmitContactModification()
         {
@@ -151,7 +153,7 @@ namespace WebAddressbookTests
                 {
                     // Ignore errors if unable to close the browser
                 }
-                Assert.AreEqual("", verificationErrors.ToString());
+                
             }
 
 

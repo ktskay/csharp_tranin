@@ -18,6 +18,7 @@ namespace WebAddressbookTests
         {
             this.manager = manager;
             driver = manager.Driver;
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
         }
 
         public void Type(By locator, string text)

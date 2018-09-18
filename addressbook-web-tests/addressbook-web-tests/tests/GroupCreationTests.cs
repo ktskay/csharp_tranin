@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -20,7 +21,7 @@ namespace WebAddressbookTests
             GroupData group = new GroupData("aaa");
             group.Header = "ddd";
             group.Footer = "fff";
-            
+
             app.Groups.Create(group);
         }
 
@@ -32,8 +33,10 @@ namespace WebAddressbookTests
             group.Footer = "";
 
             
+            
+
             app.Groups.Create(group);
-                
+
         }
     }
 }

@@ -38,7 +38,11 @@ namespace WebAddressbookTests
             {
                 return;
             }
-            driver.FindElement(By.LinkText("groups")).Click();
+
+            if (driver != null)
+            {
+                driver.FindElement(By.LinkText("groups")).Click();
+            }
         }
     }
 }

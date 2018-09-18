@@ -32,6 +32,8 @@ namespace WebAddressbookTests
             return this;
         }
 
+       
+
         public GroupHelper Modify(int v, GroupData  newData)
         {
             manager.NavigationHelper.GotoGroupsPage();
@@ -84,7 +86,9 @@ namespace WebAddressbookTests
         public GroupHelper ReturntoGroupsPage()
         {
             driver.FindElement(By.LinkText("group page")).Click();
-            driver.FindElement(By.LinkText("Logout")).Click();
+            manager.Auth.Logout();
+
+
             return this;
         }
         public GroupHelper SelectGroup(int index)

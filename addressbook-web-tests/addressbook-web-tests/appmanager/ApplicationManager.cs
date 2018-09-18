@@ -32,7 +32,7 @@ namespace WebAddressbookTests
             options.UseLegacyImplementation = true;
             options.BrowserExecutableLocation = @"C:\Program Files (x86)\firefox.exe";
             driver = new FirefoxDriver(options);
-            baseURL = "http://localhost/";
+            baseURL = "http://localhost";
             verificationErrors = new StringBuilder();
             
 
