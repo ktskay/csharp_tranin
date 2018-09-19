@@ -22,7 +22,11 @@ namespace WebAddressbookTests
             group.Header = "ddd";
             group.Footer = "fff";
 
+            List<GroupData> oldGroups = app.Groups.GetGroupList();
             app.Groups.Create(group);
+
+            List<GroupData> newGroups = app.Groups.GetGroupList();
+            Assert.AreEqual(oldGroups.Count + 1, newGroups.Count);
         }
 
         [Test]
@@ -32,10 +36,12 @@ namespace WebAddressbookTests
             group.Header = "";
             group.Footer = "";
 
-            
-            
+
+            List<GroupData> oldGroups = app.Groups.GetGroupList();
 
             app.Groups.Create(group);
+            List<GroupData> newGroups = app.Groups.GetGroupList();
+            Assert.AreEqual(oldGroups.Count + 1, newGroups.Count);
 
         }
     }
