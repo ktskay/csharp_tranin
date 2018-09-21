@@ -38,12 +38,14 @@ namespace WebAddressbookTests
         public List<ContactsData> GetContactsList()
         {
             List<ContactsData> contact = new List<ContactsData>();
-            ICollection<IWebElement> elements = driver.FindElements(By.LinkText("First name"));
+            ICollection<IWebElement> elements = driver.FindElements(By.Name("entry"));
             foreach (IWebElement element in elements)
             {
               
                 contact.Add(new ContactsData(element.Text));
             }
+
+            
 
             return contact;
         }

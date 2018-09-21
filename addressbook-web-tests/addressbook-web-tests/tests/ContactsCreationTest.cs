@@ -15,15 +15,20 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
-            app.Contacts.AddNewContact();
+	        List<ContactsData> oldContact = app.Contacts.GetContactsList();
+
+			app.Contacts.AddNewContact();
             ContactsData contacts = new ContactsData("lopux");
             contacts.Middlename = "lop";
             contacts.Lastname = "lopuxov";
 
-            List<ContactsData> oldContact = app.Contacts.GetContactsList();
+            
             app.Contacts
                 .FillContactForm(contacts)
                 .SubmitNewContact();
+
+			Thread.Sleep(1000);
+
             List<ContactsData> newContact = app.Contacts.GetContactsList();
             Assert.AreEqual(oldContact.Count + 1, newContact.Count);
 
@@ -33,17 +38,20 @@ namespace WebAddressbookTests
         public void EmptyContactCreationTest()
 
         {
+	        List<ContactsData> oldContact = app.Contacts.GetContactsList();
 
-            app.Contacts.AddNewContact();
+			app.Contacts.AddNewContact();
             ContactsData contacts = new ContactsData("");
             contacts.Middlename = "";
             contacts.Lastname = "";
 
 
-            List<ContactsData> oldContact = app.Contacts.GetContactsList();
+            
             app.Contacts
                 .FillContactForm(contacts)
                 .SubmitNewContact();
+
+			Thread.Sleep(1000);
             List<ContactsData> newContact = app.Contacts.GetContactsList();
             Assert.AreEqual(oldContact.Count + 1, newContact.Count);
         }
