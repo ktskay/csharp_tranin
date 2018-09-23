@@ -32,6 +32,8 @@ namespace WebAddressbookTests
             return this;
         }
 
+       
+
         public List<GroupData> GetGroupList()
         {
             List<GroupData> groups = new List<GroupData>();
@@ -71,17 +73,10 @@ namespace WebAddressbookTests
         }
 
 
-        public GroupHelper InitGroupCreation(int index)
+        public GroupHelper InitGroupCreation()
         {
-            if (IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
-            {
-                driver.FindElement((By.XPath("(//input[@name='selected[]'])[" + index + "]")));
-            }
-            else
-            {
+          
                 driver.FindElement(By.Name("new")).Click();
-            }
-
             return this;
         }
         public GroupHelper FillGroupForm(GroupData group)
@@ -112,7 +107,13 @@ namespace WebAddressbookTests
         }
         public GroupHelper SelectGroup(int index)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            if (IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
+            {
+                driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]"));
+            }
+            else {
+                driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            }
             return this;
         }
         public GroupHelper RemoveGroup()
