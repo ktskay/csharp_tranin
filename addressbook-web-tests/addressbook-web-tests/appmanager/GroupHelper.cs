@@ -71,10 +71,17 @@ namespace WebAddressbookTests
         }
 
 
-        public GroupHelper InitGroupCreation()
+        public GroupHelper InitGroupCreation(int index)
         {
+            if (IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
+            {
+                driver.FindElement((By.XPath("(//input[@name='selected[]'])[" + index + "]")));
+            }
+            else
+            {
+                driver.FindElement(By.Name("new")).Click();
+            }
 
-            driver.FindElement(By.Name("new")).Click();
             return this;
         }
         public GroupHelper FillGroupForm(GroupData group)
