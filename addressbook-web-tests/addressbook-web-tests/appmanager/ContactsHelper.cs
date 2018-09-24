@@ -26,6 +26,7 @@ namespace WebAddressbookTests
 
       public ContactsHelper Modify(int v,ContactsData newContacts)
       {
+          AddNewContact();
           SelectContact();
           InitContactsModification();
           FillContactForm(newContacts);
@@ -65,7 +66,15 @@ namespace WebAddressbookTests
 
         public ContactsHelper AddNewContact()
         {
-            driver.FindElement(By.LinkText("add new")).Click();
+            if (IsElementPresent( By.TagName("tr.center")))
+            {
+                driver.FindElement(By.TagName("tr.center"));
+            }
+            else
+            {
+                driver.FindElement(By.LinkText("add new")).Click();
+            }
+            
             return this;
         }
     
@@ -90,6 +99,7 @@ namespace WebAddressbookTests
         public ContactsHelper SelectContact()
         {
             driver.FindElement(By.Name("selected[]")).Click();
+
             return this;
         }
 
@@ -105,18 +115,7 @@ namespace WebAddressbookTests
             return this;
         }
 
-        private new bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
+        
 
         private bool IsAlertPresent()
         {
