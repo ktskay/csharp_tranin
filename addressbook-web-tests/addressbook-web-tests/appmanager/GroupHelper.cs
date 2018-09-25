@@ -99,20 +99,12 @@ namespace WebAddressbookTests
         public GroupHelper ReturntoGroupsPage()
         {
             driver.FindElement(By.LinkText("group page")).Click();
-           
-
 
             return this;
         }
         public GroupHelper SelectGroup(int index)
         {
-            if (IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
-            {
-                driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]"));
-            }
-            else {
-                driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
-            }
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
             return this;
         }
         public GroupHelper RemoveGroup()
