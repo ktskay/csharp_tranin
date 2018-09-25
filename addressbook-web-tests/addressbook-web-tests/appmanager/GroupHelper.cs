@@ -75,7 +75,6 @@ namespace WebAddressbookTests
 
         public GroupHelper InitGroupCreation()
         {
-          
                 driver.FindElement(By.Name("new")).Click();
             return this;
         }
