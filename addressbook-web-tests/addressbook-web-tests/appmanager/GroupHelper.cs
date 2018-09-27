@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-	public class GroupHelper : HelperBase
+    public class GroupHelper : HelperBase
     {
 
 
@@ -67,23 +73,11 @@ namespace WebAddressbookTests
         }
 
 
-       
-
-		 public GroupHelper InitGroupCreation()
-
-	  
-	    {
-		    //if (IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
-		    //{
-			   // driver.FindElement((By.XPath("(//input[@name='selected[]'])[" + index + "]")));
-		    //}
-		    //else
-		    //{
-
-			    driver.FindElement(By.Name("new")).Click();
-		    //}
-		    return this;
-		}
+        public GroupHelper InitGroupCreation()
+        {
+                driver.FindElement(By.Name("new")).Click();
+            return this;
+        }
         public GroupHelper FillGroupForm(GroupData group)
         {
            
@@ -112,7 +106,7 @@ namespace WebAddressbookTests
         }
         public GroupHelper SelectGroup(int index)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (index+1) + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
             return this;
         }
         public GroupHelper RemoveGroup()
