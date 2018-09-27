@@ -66,14 +66,14 @@ namespace WebAddressbookTests
 
         public ContactsHelper AddNewContact()
         {
-            if (IsElementPresent( By.TagName("tr.center")))
-            {
-                driver.FindElement(By.TagName("tr.center"));
-            }
-            else
-            {
+            //if (IsElementPresent( By.TagName("tr.center")))
+            //{
+            //    driver.FindElement(By.TagName("tr.center"));
+            //}
+            //else
+            //{
                 driver.FindElement(By.LinkText("add new")).Click();
-            }
+            
             
             return this;
         }
