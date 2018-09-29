@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    public class ContactsData
+    public class ContactsData : IEquatable< ContactsData >
     {
         private string firstname;
-        private string middlename = "";
-        private string lastname = "";
+		private string lastname = "";
 
         public ContactsData(string firstname)
         {
@@ -18,8 +18,30 @@ namespace WebAddressbookTests
 
         }
 
+	    public bool Equals(ContactsData other)
+	    {
+		    if (Object.ReferenceEquals(other, null))
+		    {
+			    return false;
+		    }
 
-        public string Firstname
+		    if (object.ReferenceEquals(this, other))
+		    {
+			    return true;
+		    }
+
+		    return Firstname  == other.Firstname;
+	    }
+
+
+
+	    public override int GetHashCode()
+	    {
+		    return Firstname.GetHashCode();
+	    }
+
+
+	    public string Firstname
         {
             get
             {
@@ -30,19 +52,8 @@ namespace WebAddressbookTests
                 firstname = value;
             }
         }
-        public string Middlename
-        {
-            get
-            {
-                return middlename;
-
-            }
-            set
-            {
-                middlename = value;
-            }
-        }
-        public string Lastname
+		public string Middlename { get; set; } = "";
+		public string Lastname
         {
             get
             {
@@ -54,4 +65,5 @@ namespace WebAddressbookTests
             }
         }
     }
+	      
 }

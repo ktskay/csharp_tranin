@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -17,13 +18,19 @@ namespace WebAddressbookTests
         [Test]
         public void ContactRemovalTest()
         {
-            
-              app.Contacts
+	        List<ContactsData> oldContact = app.Contacts.GetContactsList();
+
+			app.Contacts
                 .SelectContact()
                 .DeleteContact()
                 .ConfirmedWindow();
-            
-        }
+
+	        List<ContactsData> newContact = app.Contacts.GetContactsList();
+	        oldContact.RemoveAt(0);
+
+	        Assert.AreEqual(oldContact, newContact);
+
+		}
 
 
         }
