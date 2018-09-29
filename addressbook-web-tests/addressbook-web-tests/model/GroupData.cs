@@ -74,13 +74,5 @@ namespace WebAddressbookTests
 	    {
 		    return Name.GetHashCode();
 	    }
-
-	    public override string ToString()
-	    {
-		    return "name=" + Name;
-
-	    }
-
-	   
 	}
 }
