@@ -18,7 +18,7 @@ namespace WebAddressbookTests
             newData.Footer = null;
             int num = 0;
 
-            //интеллектуальность 
+            //интеллектуальность теста
             if (!app.Groups.FindGroup(num))
             {
                 GroupData data = new GroupData("groupModif");
