@@ -9,39 +9,42 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class HelperBase
-    {
-        protected ApplicationManager manager;
-        protected IWebDriver driver;
+	public class HelperBase
+	{
+		protected ApplicationManager manager;
+		protected IWebDriver driver;
+		protected WebDriverWait wait;
 
-        public HelperBase(ApplicationManager manager)
-        {
-            this.manager = manager;
-            driver = manager.Driver;
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
-        }
+		public HelperBase(ApplicationManager manager)
+		{
+			this.manager = manager;
+			driver = manager.Driver;
+			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
+			wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
+		}
 
-        public void Type(By locator, string text)
-        {
-            if (text != null)
-            {
-                driver.FindElement(locator).Clear();
-                driver.FindElement(locator).SendKeys(text);
-            }
-        }
+		public void Type(By locator, string text)
+		{
+			if (text != null)
+			{
+				driver.FindElement(locator).Clear();
+				driver.FindElement(locator).SendKeys(text);
+			}
+		}
 
-        public bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
+		public bool IsElementPresent(By by)
+		{
+			try
+			{
+				driver.FindElement(by);
+				return true;
+			}
+			catch (NoSuchElementException)
+			{
+				return false;
+			}
 
-    }
+		}
+
+	}
 }

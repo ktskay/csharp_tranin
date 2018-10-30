@@ -27,10 +27,13 @@ namespace WebAddressbookTests
                 .FillContactForm(contacts)
                 .SubmitNewContact();
 
-			Thread.Sleep(1000);
+			
 
             List<ContactsData> newContact = app.Contacts.GetContactsList();
-            Assert.AreEqual(oldContact.Count + 1, newContact.Count);
+			oldContact.Add(contacts);
+			oldContact.Sort();
+			newContact.Sort();
+            Assert.AreEqual(oldContact, newContact);
 
 
         }
@@ -51,7 +54,7 @@ namespace WebAddressbookTests
                 .FillContactForm(contacts)
                 .SubmitNewContact();
 
-			Thread.Sleep(1000);
+
             List<ContactsData> newContact = app.Contacts.GetContactsList();
             Assert.AreEqual(oldContact.Count + 1, newContact.Count);
         }

@@ -10,39 +10,39 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class NavigationHelper : HelperBase 
-    {
-        
-        public string baseURL;
+	public class NavigationHelper : HelperBase
+	{
 
-        public NavigationHelper(ApplicationManager manager, string baseUrl ) 
-            : base(manager)
-        {
-            baseURL = baseUrl;
-        }
+		public string BaseUrl;
 
-        public void GoToHomepage()
-        {
-            if (driver.Url == baseURL + "/addressbook/")
-            {
-                return;
-            }
-            driver.Navigate().GoToUrl(baseURL + "/addressbook/");
-        }
+		public NavigationHelper(ApplicationManager manager, string baseUrl)
+			: base(manager)
+		{
+			BaseUrl = baseUrl;
+		}
+
+		public void GoToHomepage()
+		{
+			if (driver.Url == BaseUrl + "/addressbook/")
+			{
+				return;
+			}
+			driver.Navigate().GoToUrl(BaseUrl + "/addressbook/");
+		}
 
 
-        public void GotoGroupsPage()
-        {
-            if (driver.Url == baseURL + "/addressbook/group.php"
-                && IsElementPresent(By.Name("new")))
-            {
-                return;
-            }
+		public void GotoGroupsPage()
+		{
+			if (driver.Url == BaseUrl + "/addressbook/group.php"
+				&& IsElementPresent(By.Name("new")))
+			{
+				return;
+			}
 
-            if (driver != null)
-            {
-                driver.FindElement(By.LinkText("groups")).Click();
-            }
-        }
-    }
+			if (driver != null)
+			{
+				driver.FindElement(By.LinkText("groups")).Click();
+			}
+		}
+	}
 }

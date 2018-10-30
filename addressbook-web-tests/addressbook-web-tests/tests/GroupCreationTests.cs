@@ -26,8 +26,10 @@ namespace WebAddressbookTests
             app.Groups.Create(group);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
-			oldGroups.Add(group);
-            Assert.AreEqual(oldGroups, newGroups);
+	        oldGroups.Add(group);
+
+
+			Assert.AreNotEqual(oldGroups, newGroups);
         }
 
         [Test]
