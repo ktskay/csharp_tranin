@@ -15,6 +15,8 @@ namespace WebAddressbookTests
         {
             ContactData newData = new ContactData("ztest1", "ztest2");
             int num = 0;
+
+            //интеллектуальность теста
             if (!app.Contacts.FindContact(num))
             {
                 ContactData data = new ContactData("contactModif", "contactModif");
