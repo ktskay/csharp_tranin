@@ -24,6 +24,7 @@ namespace WebAddressbookTests
             Assert.AreEqual(fromTable.AllPhones, fromEdit.AllPhones);
         }
 
+        //Реализовать тест, который проверяет, что для некоторого отдельно взятого контакта информация на главной странице (в таблице) соответствует информации, представленной в форме редактирования контакта (где задаются все его свойства).
         [Test]
         public void ContactViewInformationTest()
         {
