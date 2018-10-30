@@ -9,6 +9,7 @@ namespace WebAddressbookTests
 {
     public class ContactTestBase : AuthTestBase
     {
+        //Сравнение данных из БД и интерфейса
         [TearDown]
         public void CompareContactsUI_DB()
         {

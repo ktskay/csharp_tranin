@@ -9,6 +9,7 @@ namespace WebAddressbookTests
 {
     public class GroupTestBase : AuthTestBase
     {
+        //Сравнение групп из интерфейса и БД
         [TearDown]
         public void CompareGroupsUI_DB()
         {

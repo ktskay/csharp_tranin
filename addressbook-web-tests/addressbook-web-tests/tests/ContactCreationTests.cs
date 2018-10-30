@@ -47,13 +47,13 @@ namespace WebAddressbookTests
         [Test, TestCaseSource("ContactDataFromJsonFile")]
         public void ContactCreationTest(ContactData contact)
         {
-            List<ContactData> oldContacts = ContactData.GetAll();// app.Contacts.GetContactList();
+            List<ContactData> oldContacts = ContactData.GetAll();// app.Contacts.GetContactList(); //Сравнение данных из БД и интерфейса
 
             app.Contacts.Create(contact);
 
             Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount());
 
-            List<ContactData> newContacts = ContactData.GetAll();//app.Contacts.GetContactList();
+            List<ContactData> newContacts = ContactData.GetAll();//app.Contacts.GetContactList(); //Сравнение данных из БД и интерфейса
             oldContacts.Add(contact);
             oldContacts.Sort();
             newContacts.Sort();

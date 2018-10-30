@@ -91,13 +91,13 @@ namespace WebAddressbookTests
         [Test, TestCaseSource("GroupDataFromJsonFile")]
         public void GroupCreationTest(GroupData group)
         {
-            List<GroupData> oldGroups = GroupData.GetAll();
+            List<GroupData> oldGroups = GroupData.GetAll(); //Получение группы из БД
 
             app.Groups.Create(group);
 
             Assert.AreEqual(oldGroups.Count + 1, app.Groups.GetGroupCount());
 
-            List<GroupData> newGroups = GroupData.GetAll();
+            List<GroupData> newGroups = GroupData.GetAll(); //Получение группы из БД
             oldGroups.Add(group);
             oldGroups.Sort();
             newGroups.Sort();
@@ -111,19 +111,20 @@ namespace WebAddressbookTests
             group.Header = "";
             group.Footer = "";
 
-            List<GroupData> oldGroups = GroupData.GetAll();
+            List<GroupData> oldGroups = GroupData.GetAll(); //Получение группы из БД
 
             app.Groups.Create(group);
 
             Assert.AreEqual(oldGroups.Count + 1, app.Groups.GetGroupCount());
 
-            List<GroupData> newGroups = GroupData.GetAll();
+            List<GroupData> newGroups = GroupData.GetAll(); //Получение группы из БД
             oldGroups.Add(group);
             oldGroups.Sort();
             newGroups.Sort();
             Assert.AreEqual(oldGroups, newGroups);
         }
 
+        // Тест на сравнение производительности получения групп\контактов из БД и интерфейса 
         [Test]
         public void TestDBConnectivity()
         {

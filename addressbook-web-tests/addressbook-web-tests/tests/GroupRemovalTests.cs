@@ -21,14 +21,14 @@ namespace WebAddressbookTests
                 app.Groups.Create(data);
             }
 
-            List<GroupData> oldGroups = GroupData.GetAll();
+            List<GroupData> oldGroups = GroupData.GetAll(); //Получение группы из БД
             GroupData oldData = oldGroups[num];
 
             app.Groups.Remove(oldData);
 
             Assert.AreEqual(oldGroups.Count - 1, app.Groups.GetGroupCount());
 
-            List<GroupData> newGroups = GroupData.GetAll();
+            List<GroupData> newGroups = GroupData.GetAll();//Получение группы из БД
             oldGroups.RemoveAt(num);
             Assert.AreEqual(oldGroups, newGroups);
 

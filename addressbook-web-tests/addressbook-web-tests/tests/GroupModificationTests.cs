@@ -25,14 +25,14 @@ namespace WebAddressbookTests
                 app.Groups.Create(data);
             }
 
-            List<GroupData> oldGroups = GroupData.GetAll();
+            List<GroupData> oldGroups = GroupData.GetAll(); //Получение группы из БД
             GroupData oldData = oldGroups[num];
 
             app.Groups.Modify(oldData, newData);
 
             Assert.AreEqual(oldGroups.Count, app.Groups.GetGroupCount());
 
-            List<GroupData> newGroups = GroupData.GetAll();
+            List<GroupData> newGroups = GroupData.GetAll(); //Получение группы из БД
             oldData.Name = newData.Name;
             oldGroups.Sort();
             newGroups.Sort();

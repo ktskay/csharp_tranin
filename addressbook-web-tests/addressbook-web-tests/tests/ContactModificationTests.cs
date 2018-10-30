@@ -23,14 +23,14 @@ namespace WebAddressbookTests
                 app.Contacts.Create(data);
             }
 
-            List<ContactData> oldContacts = ContactData.GetAll();
+            List<ContactData> oldContacts = ContactData.GetAll(); //Сравнение данных из БД и интерфейса
             ContactData oldData = oldContacts[num];
 
             app.Contacts.Modify(oldData, newData);
 
             Assert.AreEqual(oldContacts.Count, app.Contacts.GetContactCount());
 
-            List<ContactData> newContacts = ContactData.GetAll();
+            List<ContactData> newContacts = ContactData.GetAll(); //Сравнение данных из БД и интерфейса
             oldData.Lastname = newData.Lastname;
             oldData.Firstname = newData.Firstname;
             oldContacts.Sort();
