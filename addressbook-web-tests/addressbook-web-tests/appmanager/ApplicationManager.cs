@@ -5,44 +5,35 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
     public class ApplicationManager
     {
-        
         protected IWebDriver driver;
-        private StringBuilder verificationErrors;
         protected string baseURL;
 
-
         protected LoginHelper loginHelper;
-        protected NavigationHelper navigationHelper;
+        protected NavigationHelper navigator;
         protected GroupHelper groupHelper;
-        protected ContactsHelper contactsHelper;
-        private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>() ;
+        protected ContactHelper contactHelper;
 
+        private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
-        private  ApplicationManager()
+        private ApplicationManager()
         {
-
-            FirefoxOptions options = new FirefoxOptions();
-            options.UseLegacyImplementation = true;
-            options.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
-            driver = new FirefoxDriver(options);
+            driver = new ChromeDriver();
             baseURL = "http://localhost";
-            verificationErrors = new StringBuilder();
-            
 
-            loginHelper = new LoginHelper(this );
-            navigationHelper = new NavigationHelper(this, baseURL);
+            loginHelper = new LoginHelper(this);
+            navigator = new NavigationHelper(this, baseURL);
             groupHelper = new GroupHelper(this);
-            contactsHelper = new ContactsHelper(this);
+            contactHelper = new ContactHelper(this);
         }
 
-         ~ApplicationManager()
+        ~ApplicationManager()
         {
             try
             {
@@ -54,30 +45,24 @@ namespace WebAddressbookTests
             }
         }
 
-
         public static ApplicationManager GetInstance()
         {
-            if (! app.IsValueCreated)
+            if (!app.IsValueCreated)
             {
                 ApplicationManager newInstance = new ApplicationManager();
-                newInstance.NavigationHelper.GoToHomepage();
+                newInstance.Navigator.GoToHomePage();
                 app.Value = newInstance;
-               
             }
             return app.Value;
         }
 
-        
-
-        public IWebDriver Driver 
+        public IWebDriver Driver
         {
             get
             {
                 return driver;
             }
         }
-
-       
 
         public LoginHelper Auth
         {
@@ -86,28 +71,29 @@ namespace WebAddressbookTests
                 return loginHelper;
             }
         }
-        public NavigationHelper NavigationHelper
+
+        public NavigationHelper Navigator
         {
             get
             {
-                return navigationHelper;
+                return navigator;
             }
         }
-         public GroupHelper Groups
+
+        public GroupHelper Groups
         {
             get
             {
                 return groupHelper;
             }
         }
-          public ContactsHelper Contacts
+
+        public ContactHelper Contacts
         {
             get
             {
-                return contactsHelper;
+                return contactHelper;
             }
         }
-
-        
     }
 }

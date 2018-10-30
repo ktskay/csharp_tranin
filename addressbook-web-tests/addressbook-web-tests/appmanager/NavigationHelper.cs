@@ -7,42 +7,45 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-
 namespace WebAddressbookTests
 {
-	public class NavigationHelper : HelperBase
-	{
 
-		public string BaseUrl;
+    public class NavigationHelper : HelperBase
+    {
+        private string baseURL;
 
-		public NavigationHelper(ApplicationManager manager, string baseUrl)
-			: base(manager)
-		{
-			BaseUrl = baseUrl;
-		}
+        public NavigationHelper(ApplicationManager manager, string baseURL) : base(manager)
+        {
+            this.baseURL = baseURL;
+        }
 
-		public void GoToHomepage()
-		{
-			if (driver.Url == BaseUrl + "/addressbook/")
-			{
-				return;
-			}
-			driver.Navigate().GoToUrl(BaseUrl + "/addressbook/");
-		}
+        public void GoToHomePage()
+        {
+            if (driver.Url == baseURL + "/addressbook/")
+            {
+                return;
+            }
+            driver.Navigate().GoToUrl(baseURL + "/addressbook/");
+        }
 
+        public void GoToGroupsPage()
+        {
+            if (driver.Url == baseURL + "/addressbook/group.php"
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
+            driver.FindElement(By.LinkText("groups")).Click();
+        }
 
-		public void GotoGroupsPage()
-		{
-			if (driver.Url == BaseUrl + "/addressbook/group.php"
-				&& IsElementPresent(By.Name("new")))
-			{
-				return;
-			}
-
-			if (driver != null)
-			{
-				driver.FindElement(By.LinkText("groups")).Click();
-			}
-		}
-	}
+        public void GoToAddContactsPage()
+        {
+            if (driver.Url == baseURL + "/addressbook/edit.php"
+                && IsElementPresent(By.Name("submit")))
+            {
+                return;
+            }
+            driver.FindElement(By.LinkText("add new")).Click();
+        }
+    }
 }

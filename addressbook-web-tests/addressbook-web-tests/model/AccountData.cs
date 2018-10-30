@@ -8,9 +8,6 @@ namespace WebAddressbookTests
 {
     public class AccountData
     {
-
-
-
         private string username;
         private string password;
 
@@ -29,7 +26,6 @@ namespace WebAddressbookTests
             set
             {
                 username = value;
-
             }
         }
 
@@ -39,7 +35,6 @@ namespace WebAddressbookTests
             {
                 return password;
             }
-
             set
             {
                 password = value;
@@ -47,4 +42,3 @@ namespace WebAddressbookTests
         }
     }
 }
-
