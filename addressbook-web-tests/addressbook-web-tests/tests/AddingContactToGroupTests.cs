@@ -10,6 +10,7 @@ namespace WebAddressbookTests
     [TestFixture]
     public class AddingContactToGroupTests : AuthTestBase
     {
+        //Добавление контакта в группу
         [Test]
         public void TestAddingContactToGroup()
         {

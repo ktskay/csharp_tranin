@@ -10,6 +10,7 @@ namespace WebAddressbookTests
     [TestFixture]
     public class RemovingContactFromGroupTests : AuthTestBase
     {
+        //Удаление контакта из группы
         [Test]
         public void TestRemovingContactFromGroup()
         {
