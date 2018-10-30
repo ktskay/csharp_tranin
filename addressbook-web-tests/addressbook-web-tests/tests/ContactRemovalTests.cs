@@ -14,6 +14,7 @@ namespace WebAddressbookTests
         public void ContactRemovalTest()
         {
             int num = 0;
+            //интеллектуальность теста
             if (!app.Contacts.FindContact(num))
             {
                 ContactData data = new ContactData("contactDelete", "contactDelete");
