@@ -28,6 +28,8 @@ namespace WebAddressbookTests
             return contacts;
         }
 
+
+        #region Реализация считывания с файлов 
         public static IEnumerable<ContactData> ContactDataFromXmlFile()
         {
             return (List<ContactData>)new XmlSerializer(typeof(List<ContactData>))
@@ -39,6 +41,8 @@ namespace WebAddressbookTests
             return JsonConvert.DeserializeObject<List<ContactData>>(
                 File.ReadAllText(@"contacts.json"));
         }
+        #endregion
+
 
         [Test, TestCaseSource("ContactDataFromJsonFile")]
         public void ContactCreationTest(ContactData contact)

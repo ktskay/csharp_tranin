@@ -30,7 +30,7 @@ namespace WebAddressbookTests
             }
             return groups;
         }
-
+        #region Реализация считывания с файлов 
         public static IEnumerable<GroupData> GroupDataFromCsvFile()
         {
             List<GroupData> groups = new List<GroupData>();
@@ -85,6 +85,8 @@ namespace WebAddressbookTests
 
             return groups;
         }
+        #endregion
+
 
         [Test, TestCaseSource("GroupDataFromJsonFile")]
         public void GroupCreationTest(GroupData group)
