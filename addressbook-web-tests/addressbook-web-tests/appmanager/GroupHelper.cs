@@ -132,6 +132,7 @@ namespace WebAddressbookTests
             return this;
         }
 
+        // Кеширование для групп
         private List<GroupData> groupCache = null;
 
         public List<GroupData> GetGroupList()

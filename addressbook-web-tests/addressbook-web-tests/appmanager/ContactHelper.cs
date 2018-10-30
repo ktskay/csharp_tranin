@@ -246,6 +246,7 @@ namespace WebAddressbookTests
 
         private List<ContactData> contactCache = null;
 
+        //Кеширование для контактов
         public List<ContactData> GetContactList()
         {
             if (contactCache == null)
