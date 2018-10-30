@@ -19,6 +19,7 @@ namespace WebAddressbookTests
             Name = name;
         }
 
+        #region Методы необходимые для сравнения группы по имени
         public bool Equals(GroupData other)
         {
             if (Object.ReferenceEquals(other, null))
@@ -50,6 +51,7 @@ namespace WebAddressbookTests
             }
             return Name.CompareTo(other.Name);
         }
+        #endregion
 
         [Column(Name = "group_name")]
         public string Name { get; set; }

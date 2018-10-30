@@ -26,6 +26,7 @@ namespace WebAddressbookTests
             Lastname = lastname;
         }
 
+        #region Методы необходимые для сравнения контактов по Firstname и Lastname
         public bool Equals(ContactData other)
         {
             if (Object.ReferenceEquals(other, null))
@@ -61,6 +62,7 @@ namespace WebAddressbookTests
             }
             return Firstname.CompareTo(other.Firstname);
         }
+        #endregion
 
         [Column(Name = "firstname")]
         public string Firstname { get; set; }
