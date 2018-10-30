@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "addressbook-web-tests", "addressbook-web-tests\addressbook-web-tests.csproj", "{6AC16140-2ECB-428D-9F96-039441F20365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "addressbook-test-data-generators", "..\..\..\..\..\Desktop\addressbook-web-tests-master\addressbook-test-data-generators\addressbook-test-data-generators.csproj", "{AE9144AA-063E-4843-A10D-E460C5867570}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "addressbook-test-data-generators", "..\addressbook-test-data-generators\addressbook-test-data-generators.csproj", "{AE9144AA-063E-4843-A10D-E460C5867570}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
