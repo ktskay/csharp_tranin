@@ -11,6 +11,7 @@ namespace WebAddressbookTests
     [TestFixture]
     public class ContactInformationTests : AuthTestBase
     {
+        //Задание №12: реализовать тесты для проверки детальной информации о контакте
         [Test]
         public void ContactEditInformationTest()
         {
