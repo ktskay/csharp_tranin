@@ -14,6 +14,7 @@ namespace WebAddressbookTests
         public void GroupRemovalTest()
         {
             int num = 0;
+            //интеллектуальность теста
             if (!app.Groups.FindGroup(num))
             {
                 GroupData data = new GroupData("groupDelete");
